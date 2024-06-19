@@ -41,7 +41,7 @@ const Login = () => {
       dispatch(addUser({uid:uid,email:email,displayName:displayName}))
 
       // Profile updated!
-      navigate("/browse");
+     
       // ...
     }).catch((error) => {
       // An error occurred
@@ -63,8 +63,8 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-    navigate("/browse");
+   
+  
     // ...
   })
   .catch((error) => {
