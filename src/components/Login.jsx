@@ -1,10 +1,15 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData, checkValidDateData } from "../utils/validate";
-import {  createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { BG_URL } from "../utils/constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -15,66 +20,66 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const handleButtonClick = () => {
-    // if(!isSignInForm){
-    //   // for sign up form validate checking 
-    //   const msg = checkValidDateData(name.current.value,email.current.value,password.current.value)
-    //   setErrorMsg(msg);
-    //   console.log(msg)
-    // }
-    // else{
-      //for sign in form validate checking
-    const msg = checkValidData(email.current.value,password.current.value);
+    const msg = checkValidData(email.current.value, password.current.value);
     setErrorMsg(msg);
-  // }
-  if(msg) return;
-  if(!isSignInForm){
-    //sign up login
-    createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    console.log(user);
-    updateProfile(auth.currentUser, {
-      displayName: name.current.value
-    }).then(() => {
-      const {uid ,email,displayName }= auth.currentUser;
-      dispatch(addUser({uid:uid,email:email,displayName:displayName}))
 
-      // Profile updated!
-     
-      // ...
-    }).catch((error) => {
-      // An error occurred
-      setErrorMsg(error.message);
-    });
-    
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setErrorMsg(errorCode + ""+ errorMessage);
-    // ..
-  });
-  }
-  else{
-    // sign in logic
-    signInWithEmailAndPassword(auth, email.current.value,password.current.value)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-   
-  
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setErrorMsg(errorCode + ""+ errorMessage);
-  });
-  }
+    if (msg) return;
+    if (!isSignInForm) {
+      //sign up login
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
 
+          updateProfile(auth.currentUser, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName })
+              );
 
+              // Profile updated!
+
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMsg(error.message);
+            });
+
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMsg(errorCode + "" + errorMessage);
+          // ..
+        });
+    } else {
+      // sign in logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMsg(errorCode + "" + errorMessage);
+        });
+    }
   };
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -83,10 +88,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/cacfadb7-c017-4318-85e4-7f46da1cae88/e43aa8b1-ea06-46a5-abe3-df13243e718d/IN-en-20240603-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-          alt="backgroundImg"
-        />
+        <img src={BG_URL} alt="backgroundImg" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
