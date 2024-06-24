@@ -38,17 +38,16 @@
 - Login/Signup form
   - signin/signup form
   - redirect to browse page
-
--Browse(after authentication)
-  -Header
-    -Main Movie
-        -Trailer in background
-        -Title & Description
+- Browse(after authentication)
+  - Header
+    - Main Movie
+        - Trailer in background
+        - Title & Description
         - MovieSuggestions
-          -MovieLists * N
--NetflixGPT
-  -Search Bar
-  -Movie Suggestions 
+          - MovieLists * N
+- NetflixGPT
+  - Search Bar
+  - Movie Suggestions 
 
 
 
