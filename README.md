@@ -30,17 +30,28 @@
 - GPT Search Page
 - GPT Search Bar
 - (BONUS) Multi-language Feature in our App
-- Get Open AI Api Key
-- Gpt Search API Call
+- Get  Gemini AI Api Key
+- Gemini Search API Call
 
 # Features
 
 - Login/Signup form
   - signin/signup form
   - redirect to browse page
-
-# Browse(after authentication)
-
-    -Header
-    -Main Movie
+- Browse(after authentication)
+  - Header
+    - Main Movie
         - Trailer in background
+        - Title & Description
+        - MovieSuggestions
+          - MovieLists * N
+- NetflixGPT
+  - Search Bar
+  - Movie Suggestions 
+
+
+
+
+
+
+
