@@ -39,7 +39,20 @@
   - signin/signup form
   - redirect to browse page
 
-# Browse(after authentication)
+-Browse(after authentication)
   -Header
     -Main Movie
         -Trailer in background
+        -Title & Description
+        - MovieSuggestions
+          -MovieLists * N
+-NetflixGPT
+  -Search Bar
+  -Movie Suggestions 
+
+
+
+
+
+
+
