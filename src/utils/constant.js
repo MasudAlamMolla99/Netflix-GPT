@@ -21,3 +21,8 @@ export const SUPPORTED_LANG = [
   { identifier: "spanish", name: "Spanish" },
   { identifier: "chinese", name: "Chinese" },
 ];
+export const GEMINI_URL =
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=";
+
+export const GEMINI_KEY = "AIzaSyD-JsmbJjMLlUqtE32ZPypDosRR0OtuAaM";
+// export const GEMINI_KEY = process.env.REACT_APP_GEMINI_KEY;
