@@ -1,5 +1,7 @@
 # Netflix-GPT
 
+ You can view the live version here: [Live Demo](https://netflix-gpt-mocha-mu.vercel.app/).
+
 - create vite@latest
 - configure TailwindCSS
 - Header
