@@ -6,6 +6,9 @@ import axios from "axios";
 import { API_OPTIONS, GEMINI_KEY, GEMINI_URL } from "../utils/constant";
 import { addGeminiMovieResults } from "../utils/gptSlice";
 
+// import { configDotenv } from "dotenv";
+// configDotenv({ path: "./.env" });
+
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store?.config.lang);
   const searchText = useRef(null);
@@ -22,16 +25,17 @@ const GptSearchBar = () => {
     return json.results;
   };
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
     const geminiQuery =
       "Act as a movie recomendation system and suggest movies for the query" +
       searchText.current.value +
       "only give me 5 movies comma separated like the example resulsts given ahead.Example results : Inside out,Don,Sholay,Jawan,Golmaal, Gaddar";
+    console.log(GEMINI_URL + GEMINI_KEY);
     const response = await axios({
       url: GEMINI_URL + GEMINI_KEY,
       method: "post",
       data: { contents: [{ parts: [{ text: geminiQuery }] }] },
     });
+
     const geminiMovies =
       response["data"]["candidates"][0]["content"]["parts"][0]["text"].split(
         ","
