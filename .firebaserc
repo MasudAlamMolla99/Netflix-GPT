@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "netflixgpt-df760",
-    "madflix": "netflixgpt-df760"
+    "madflix": "netflixgpt-df760",
+    "netflixgpt": "netflixgpt-df760"
   },
   "targets": {},
   "etags": {},
