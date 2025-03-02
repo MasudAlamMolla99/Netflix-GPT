@@ -6,13 +6,9 @@ import axios from "axios";
 import { API_OPTIONS, GEMINI_URL } from "../utils/constant";
 import { addGeminiMovieResults } from "../utils/gptSlice";
 
-// import { configDotenv } from "dotenv";
-// configDotenv({ path: "./.env" });
-
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store?.config.lang);
   const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY;
-  console.log(import.meta.env);
 
   const searchText = useRef(null);
   const dispatch = useDispatch();
