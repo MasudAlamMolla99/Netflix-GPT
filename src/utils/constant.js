@@ -25,4 +25,3 @@ export const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=";
 
 export const GEMINI_KEY = "AIzaSyCyNer577sfA6DdQcsrcmQ6e434jNi3ebQ";
-// export const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY;
